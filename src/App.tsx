@@ -13,7 +13,7 @@ function App() {
 useState(tasks);
 
 function removeTask(id:number){
-tasks = tasks.filter( t=>(t.id !==id))
+tasks = tasks.filter( t=> t.id !==id)
 }
 
 
