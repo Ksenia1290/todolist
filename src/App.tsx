@@ -19,6 +19,10 @@ let filteredTasks = tasks.filter( t => t.id !==id)
 setTasks(filteredTasks);
 }
 
+function changeFilter (value: FilteredValuesType){
+    setFilter(value);
+}
+
 let tasksForTodolist = tasks;
 if (filter ==="complited"){
     tasksForTodolist= tasks.filter(t=> t.isDone===true);
@@ -33,6 +37,7 @@ if (filter ==="active"){
         <Todolist title="What to learn"
          tasks={ tasksForTodolist}
          removeTask={removeTask}/>
+         changeFilter={changeFilter}
        </div>
     );
 }   
