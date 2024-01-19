@@ -4,13 +4,12 @@ import { Todolist } from './Todolist';
 
 function App() {
 
-    let tasks=[
+    let [tasks, setTasks]=useState([
 {id:1, title:"HTML&CSS", isDone:true},
-{id:1, title:"JS", isDone:true},
-{id:1, title:"React", isDone:true},
-    ]
+{id:2, title:"JS", isDone:true},
+{id:3, title:"React", isDone:true},
+    ]);
 
-useState(tasks);
 
 function removeTask(id:number){
 tasks = tasks.filter( t=> t.id !==id)
