@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import { Todolist } from './Todolist';
 
+export type FilteredValuesType = "all"|"complited"|"active";
+
 function App() {
 
     let [tasks, setTasks]=useState([
@@ -10,7 +12,7 @@ function App() {
 {id:3, title:"React", isDone:true},
     ]);
 
-    let [filter,setFilter]= useState("all");
+    let [filter,setFilter]= useState<FilteredValuesType>("all");
 
 function removeTask(id:number){
 let filteredTasks = tasks.filter( t => t.id !==id)
