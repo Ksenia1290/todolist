@@ -37,8 +37,10 @@ export function Todolist(props: PropsType) {
                     <ul>
                         {props.tasks.map((t)=>{
 
-                            const onChangeHandler=() => {console.log ('whant to change')}
-                            
+                            const onChangeHandler=() => {
+                                console.log (t.id + 'whant to change')
+                            }
+
                             return  <li><input type="checkbox"
                                                onChange={onChangeHandler}
                                                checked={t.isDone}
