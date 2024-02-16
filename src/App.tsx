@@ -30,8 +30,9 @@ function addTask(title:string) {
 function changeStatus(taskId:string,isDone:boolean){
   let task =  tasks.find( (t) => t.id ===taskId )
   if(task){ 
-    task.isDone = isDone;}
-  
+    task.isDone = isDone;
+}
+  setTasks(tasks);
 }
 
 let [filter,setFilter]= useState<FilteredValuesType>("all");

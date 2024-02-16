@@ -18,6 +18,8 @@ type PropsType={
 export function Todolist(props: PropsType) {
 
     const[newTaskTitle, setNewTaskTitle]=useState("");
+
+    
     return(
                 <div>
                     <h3>{props.title}</h3>
@@ -34,7 +36,13 @@ export function Todolist(props: PropsType) {
                     </div>
                     <ul>
                         {props.tasks.map((t)=>{
-                            return  <li><input type="checkbox" checked={t.isDone}/> 
+
+                            const onChangeHandler=() => {console.log ('whant to change')}
+                            
+                            return  <li><input type="checkbox"
+                                               onChange={onChangeHandler}
+                                               checked={t.isDone}
+                                               /> 
                             <span>{t.title}</span>
                             <button onClick={() => {props.removeTask(t.id)}}>X</button>
                             </li>
