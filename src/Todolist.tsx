@@ -37,7 +37,8 @@ setTitle("");
             <h3>{props.title}</h3>
             <div>
             <input value={newTaskTitle} 
-                    onChange={onChangeHandler}/>
+                    onChange={onChangeHandler}
+                    />
 
             <button onClick={ ()=>{
                     props.addTask(newTaskTitle);
@@ -56,7 +57,8 @@ setTitle("");
                         checked={t.isDone}
                     /> 
                     <span>{t.title}</span>
-                    <button onClick={() => {props.removeTask(t.id)}}>X</button>
+                    <button onClick={() =>
+                        {props.removeTask(t.id)}}>X</button>
                     </li>
                     })}
                     </ul>
