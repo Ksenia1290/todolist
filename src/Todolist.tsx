@@ -20,14 +20,14 @@ export function Todolist(props: PropsType) {
     const[newTaskTitle, setNewTaskTitle]=useState("");
 
     const onChangeHandler=(e:ChangeEvent<HTMLInputElement>) => {
-    
+    setTitle(e.currentTarget.value)
+}
+
     return(<div>
             <h3>{props.title}</h3>
             <div>
             <input value={newTaskTitle} 
-                    onChange={(e)=>{
-                    setNewTaskTitle( e.currentTarget.value)
-                    }}/>
+                    onChange={onChangeHandler}/>
 
             <button onClick={ ()=>{
                     props.addTask(newTaskTitle);
@@ -60,4 +60,8 @@ export function Todolist(props: PropsType) {
         );
     }
     
+
+    function setTitle(value: string) {
+        throw new Error("Function not implemented.");
+    }
     
