@@ -49,8 +49,7 @@ return(
 return  <li key={t.id}>
         <input type="checkbox"
                 onChange={onChangeHandler}
-                checked={t.isDone}
-        /> 
+                checked={t.isDone}/> 
             <span>{t.title}</span>
             <button onClick={onRemoveHandler}>X</button>
         </li>
