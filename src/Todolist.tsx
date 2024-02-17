@@ -38,7 +38,7 @@ export function Todolist(props: PropsType) {
                 {props.tasks.map((t)=>{
 
                 const onChangeHandler=(e:ChangeEvent<HTMLInputElement>) => {
-                console.log (t.id + 'whant to change')
+                console.log (t.id + e.currentTarget.checked)
                 }
 
             return  <li><input type="checkbox"
