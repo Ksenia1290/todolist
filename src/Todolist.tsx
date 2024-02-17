@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 import { FilteredValuesType } from "./App";
+import { title } from "process";
 
 export type TaskType={
     id:string
@@ -19,6 +20,12 @@ type PropsType={
 export function Todolist(props: PropsType) {
 
     const[newTaskTitle, setNewTaskTitle]=useState("");
+
+const addTask=()=> {
+    if (title==="")
+    props.addTask(title);
+setTitle("");
+}
 
     const onChangeHandler=(e:ChangeEvent<HTMLInputElement>) => {
     setTitle(e.currentTarget.value)
