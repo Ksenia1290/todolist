@@ -18,7 +18,6 @@ type PropsType={
 }
 
 export function Todolist(props: PropsType) {
-
     const[newTaskTitle, setNewTaskTitle]=useState("");
 
 const addTask=()=> {
@@ -29,21 +28,27 @@ const addTask=()=> {
 setTitle("");
 }
 
+const onNewTitleChangeHandler= (e: ChangeEvent<HTMLInputElement>)=>{
+    setNewTaskTitle(e.currentTarget.value)
+}
+
     const onChangeHandler=(e:ChangeEvent<HTMLInputElement>) => {
     setTitle(e.currentTarget.value)
+}
+
+const addnewTask =()=> {
+    props.addTask(newTaskTitle);
+    setNewTaskTitle("");
 }
 
     return(<div>
             <h3>{props.title}</h3>
             <div>
             <input value={newTaskTitle} 
-                    onChange={onChangeHandler}
+                    onChange={onNewTitleChangeHandler}
                     />
 
-            <button onClick={ ()=>{
-                    props.addTask(newTaskTitle);
-                    setNewTaskTitle("");
-                    } }>+</button>
+            <button onClick={ addnewTask }>+</button>
             </div>
             <ul>
                 {props.tasks.map((t)=>{
