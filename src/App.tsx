@@ -55,7 +55,9 @@ function changeFilter (value: FilteredValuesType){
                   tasks={ tasksForTodolist}
                   removeTask={removeTask}
                   changeFilter={changeFilter}
-                  addTask={addTask}/>
+                  addTask={addTask}
+                  changeTaskStatus={changeStatus}
+                  />
        </div>
     );
 }   
