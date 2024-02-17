@@ -20,65 +20,48 @@ type PropsType={
 export function Todolist(props: PropsType) {
     const[newTaskTitle, setNewTaskTitle]=useState("");
 
-const addTask=()=> {
-    if (title===""){
-        return;
-    }
-    props.addTask(title);
-setTitle("");
-}
-
 const onNewTitleChangeHandler= (e: ChangeEvent<HTMLInputElement>)=>{
     setNewTaskTitle(e.currentTarget.value)
 }
 
-    const onChangeHandler=(e:ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.currentTarget.value)
-}
-
-const addnewTask =()=> {
-    props.addTask(newTaskTitle);
+const addnewTask =()=> {props.addTask(newTaskTitle);
     setNewTaskTitle("");
 }
+const onAllClickHandler= ()=>props.changeFilter("all");
+const onActiveClickHandler= ()=>props.changeFilter("active");
+const onCompletedClickHandler= ()=>props.changeFilter("complited");
 
-    return(<div>
-            <h3>{props.title}</h3>
-            <div>
-            <input value={newTaskTitle} 
-                    onChange={onNewTitleChangeHandler}
-                    />
+return(
+    <div>
+        <h3>{props.title}</h3>
+    <div>
+        <input value={newTaskTitle} 
+                onChange={onNewTitleChangeHandler}
+        />
+        <button onClick={ addnewTask }>+</button>
+    </div>
+    <ul>
+        {props.tasks.map((t)=>{
+        const onChangeHandler=(e:ChangeEvent<HTMLInputElement>) => {
+        props.changeTaskStatus(t.id, e.currentTarget.checked);
+        }
 
-            <button onClick={ addnewTask }>+</button>
-            </div>
-            <ul>
-                {props.tasks.map((t)=>{
-
-                const onChangeHandler=(e:ChangeEvent<HTMLInputElement>) => {
-                props.changeTaskStatus(t.id, e.currentTarget.checked);
-                }
-
-            return  <li><input type="checkbox"
-                        onChange={onChangeHandler}
-                        checked={t.isDone}
-                    /> 
-                    <span>{t.title}</span>
-                    <button onClick={() =>
-                        {props.removeTask(t.id)}}>X</button>
-                    </li>
+return  <li><input type="checkbox"
+            onChange={onChangeHandler}
+            checked={t.isDone}
+            /> 
+            <span>{t.title}</span>
+            <button onClick={() =>
+            {props.removeTask(t.id)}}>X</button>
+        </li>
                     })}
-                    </ul>
-                    <div>
-                        <button onClick={()=>{props.changeFilter("all")}}>All</button>
-                        <button onClick={()=>{props.changeFilter("active")}}>Active</button>
-                        <button onClick={()=>{props.changeFilter("complited")}}>Completed</button>
-                    </div>
-                </div>
-            
-        );
-    }
-    
-
-    function setTitle(value: string) {
-        throw new Error("Function not implemented.");
+    </ul>
+            <div>
+                <button onClick={onAllClickHandler}>All</button>
+                <button onClick={onActiveClickHandler}>Active</button>
+                <button onClick={onCompletedClickHandler}>Completed</button>
+            </div>
+    </div>
+    );
     }
     
