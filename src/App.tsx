@@ -28,11 +28,12 @@ function addTask(title:string) {
 }
 
 function changeStatus(taskId:string,isDone:boolean){
-  let task =  tasks.find( (t) => t.id ===taskId )
-  if(task){ 
+let task =  tasks.find( (t) => t.id ===taskId )
+if(task){ 
     task.isDone = isDone;
 }
-  setTasks(tasks);
+let copy = [ ...tasks ]
+setTasks(copy);
 }
 
 let [filter,setFilter]= useState<FilteredValuesType>("all");
@@ -52,13 +53,13 @@ function changeFilter (value: FilteredValuesType){
     return (
         <div className="App">
         <Todolist title="What to learn"
-                  tasks={ tasksForTodolist}
-                  removeTask={removeTask}
-                  changeFilter={changeFilter}
-                  addTask={addTask}
-                  changeTaskStatus={changeStatus}
-                  />
-       </div>
+                tasks={ tasksForTodolist}
+                removeTask={removeTask}
+                changeFilter={changeFilter}
+                addTask={addTask}
+                changeTaskStatus={changeStatus}
+                />
+    </div>
     );
 }   
 
