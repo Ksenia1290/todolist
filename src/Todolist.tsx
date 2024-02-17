@@ -22,7 +22,9 @@ export function Todolist(props: PropsType) {
     const[newTaskTitle, setNewTaskTitle]=useState("");
 
 const addTask=()=> {
-    if (title==="")
+    if (title===""){
+        return;
+    }
     props.addTask(title);
 setTitle("");
 }
