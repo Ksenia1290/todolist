@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 import { FilteredValuesType } from "./App";
-import { title } from "process";
+
 
 export type TaskType={
     id:string
@@ -42,19 +42,20 @@ return(
     </div>
     <ul>
         {props.tasks.map((t)=>{
+        const onRemoveHandler =() =>{props.removeTask(t.id)}
         const onChangeHandler=(e:ChangeEvent<HTMLInputElement>) => {
         props.changeTaskStatus(t.id, e.currentTarget.checked);
         }
 
-return  <li><input type="checkbox"
-            onChange={onChangeHandler}
-            checked={t.isDone}
-            /> 
+return  <li key={t.id}>
+        <input type="checkbox"
+                onChange={onChangeHandler}
+                checked={t.isDone}
+        /> 
             <span>{t.title}</span>
-            <button onClick={() =>
-            {props.removeTask(t.id)}}>X</button>
+            <button onClick={onRemoveHandler}>X</button>
         </li>
-                    })}
+            })}
     </ul>
             <div>
                 <button onClick={onAllClickHandler}>All</button>
