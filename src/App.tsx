@@ -44,19 +44,24 @@ if (filter ==="active"){
     tasksForTodolist= tasks.filter(t=> t.isDone===false);
 }
 
-
 function changeFilter (value: FilteredValuesType){
     setFilter(value);
 }
 
+let todolists=[
+    {id:v1(),title:"What to learn",filter:"active"},
+    {id:v1(),title:"What to buy",filter:"completed"}
+]
     return (
         <div className="App">
+            
         <Todolist title="What to learn"
                 tasks={ tasksForTodolist}
                 removeTask={removeTask}
                 changeFilter={changeFilter}
                 addTask={addTask}
                 changeTaskStatus={changeStatus}
+                filter={filter}
                 />
     </div>
     );

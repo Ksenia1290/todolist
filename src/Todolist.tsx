@@ -15,10 +15,12 @@ type PropsType={
     changeFilter: (value:FilteredValuesType)=>void
     addTask:(title:string)=>void
     changeTaskStatus: (taskId:string,isDone:boolean)=>void
+    filter:FilteredValuesType
 }
 
 export function Todolist(props: PropsType) {
     const[newTaskTitle, setNewTaskTitle]=useState("");
+   
 
 const onNewTitleChangeHandler= (e: ChangeEvent<HTMLInputElement>)=>{
     setNewTaskTitle(e.currentTarget.value)
