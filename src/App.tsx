@@ -18,9 +18,6 @@ function App() {
     ]);
    
 
- let [filter,setFilter]= useState<FilterValuesType>("all");
- 
-
 function removeTask(id:string){
 let filteredTasks = tasks.filter( t => t.id !==id)
 setTasks(filteredTasks);
@@ -40,8 +37,8 @@ if(task){
 setTasks([ ...tasks ]);
 }
 
-function changeFilter (value: FilterValuesType){
-    setFilter(value);
+function changeFilter (value: FilterValuesType,todolistId:string){
+   
 }
 
 let todolists:Array<TodolistType>=[
@@ -60,6 +57,8 @@ let todolists:Array<TodolistType>=[
                     tasksForTodolist= tasks.filter(t=> t.isDone===false);
                 }
                 return <Todolist 
+                key={tl.id}
+                id={tl.id}
                 title={tl.title}
                 tasks={ tasksForTodolist}
                 removeTask={removeTask}
