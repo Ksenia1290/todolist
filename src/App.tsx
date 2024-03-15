@@ -53,10 +53,10 @@ let todolists:Array<TodolistType>=[
              {
              todolists.map((tl)=>{
                 let tasksForTodolist = tasks;
-                if (filter ==="complited"){
+                if (tl.filter ==="complited"){
                     tasksForTodolist= tasks.filter(t=> t.isDone===true);
                 }
-                if (filter ==="active"){
+                if (tl.filter ==="active"){
                     tasksForTodolist= tasks.filter(t=> t.isDone===false);
                 }
                 return <Todolist 
