@@ -58,9 +58,12 @@ return  <li key={t.id}>
             })}
     </ul>
             <div>
-                <button onClick={onAllClickHandler}>All</button>
-                <button onClick={onActiveClickHandler}>Active</button>
-                <button onClick={onCompletedClickHandler}>Completed</button>
+                <button className={props.filter==="all"? 'active-filter':''}
+                onClick={onAllClickHandler}>All</button>
+                <button  className={props.filter==="active"? 'active-filter':''}
+                onClick={onActiveClickHandler}>Active</button>
+                <button  className={props.filter==="complited"? 'active-filter':''}
+                onClick={onCompletedClickHandler}>Completed</button>
             </div>
     </div>
     );
