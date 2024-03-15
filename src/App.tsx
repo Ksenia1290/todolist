@@ -3,11 +3,11 @@ import './App.css';
 import { TaskType, Todolist } from './Todolist';
 import { v1 } from 'uuid';
 
-export type FilteredValuesType = "all"|"complited"|"active";
+export type FilterValuesType = "all"|"complited"|"active";
 type TodolistType={
     id:string
     title:string
-    filter:FilteredValuesType
+    filter:FilterValuesType
 }
 function App() {
 
@@ -39,7 +39,7 @@ if(task){
 setTasks([ ...tasks ]);
 }
 
-let [filter,setFilter]= useState<FilteredValuesType>("all");
+let [filter,setFilter]= useState<FilterValuesType>("all");
 let tasksForTodolist = tasks;
 if (filter ==="complited"){
     tasksForTodolist= tasks.filter(t=> t.isDone===true);
@@ -48,7 +48,7 @@ if (filter ==="active"){
     tasksForTodolist= tasks.filter(t=> t.isDone===false);
 }
 
-function changeFilter (value: FilteredValuesType){
+function changeFilter (value: FilterValuesType){
     setFilter(value);
 }
 
