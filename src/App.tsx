@@ -16,9 +16,10 @@ function App() {
 {id:v1(), title:"JS", isDone:true},
 {id:v1(), title:"React", isDone:true},
     ]);
-    console.log(tasks);
+   
 
-    
+ let [filter,setFilter]= useState<FilterValuesType>("all");
+ 
 
 function removeTask(id:string){
 let filteredTasks = tasks.filter( t => t.id !==id)
@@ -39,15 +40,6 @@ if(task){
 setTasks([ ...tasks ]);
 }
 
-let [filter,setFilter]= useState<FilterValuesType>("all");
-let tasksForTodolist = tasks;
-if (filter ==="complited"){
-    tasksForTodolist= tasks.filter(t=> t.isDone===true);
-}
-if (filter ==="active"){
-    tasksForTodolist= tasks.filter(t=> t.isDone===false);
-}
-
 function changeFilter (value: FilterValuesType){
     setFilter(value);
 }
@@ -60,6 +52,13 @@ let todolists:Array<TodolistType>=[
         <div className="App">
              {
              todolists.map((tl)=>{
+                let tasksForTodolist = tasks;
+                if (filter ==="complited"){
+                    tasksForTodolist= tasks.filter(t=> t.isDone===true);
+                }
+                if (filter ==="active"){
+                    tasksForTodolist= tasks.filter(t=> t.isDone===false);
+                }
                 return <Todolist 
                 title={tl.title}
                 tasks={ tasksForTodolist}
