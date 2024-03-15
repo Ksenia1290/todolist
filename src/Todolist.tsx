@@ -55,7 +55,7 @@ return(
     </div>
     <ul>
         {props.tasks.map((t)=>{
-        const onRemoveHandler =() =>{props.removeTask(t.id)}
+        const onClickHandler =() =>{props.removeTask(t.id)}
         const onChangeHandler=(e:ChangeEvent<HTMLInputElement>) => {
         props.changeTaskStatus(t.id, e.currentTarget.checked);
         }
