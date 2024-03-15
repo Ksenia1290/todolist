@@ -48,12 +48,12 @@ const onAllClickHandler= ()=>props.changeFilter("all");
 const onActiveClickHandler= ()=>props.changeFilter("active");
 const onCompletedClickHandler= ()=>props.changeFilter("complited");
 
-return(
-    <div>
+return(<div>
         <h3>{props.title}</h3>
     <div>
-        <input value={newTaskTitle} 
+        <input value={title} 
                 onChange={onChangeHandler}
+                className={error ?'error':''}
         />
         <button onClick={ addTask }>+</button>
     </div>
