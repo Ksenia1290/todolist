@@ -4,7 +4,11 @@ import { TaskType, Todolist } from './Todolist';
 import { v1 } from 'uuid';
 
 export type FilteredValuesType = "all"|"complited"|"active";
-
+type TodolistType={
+    id:string
+    title:string
+    filter:FilteredValuesType
+}
 function App() {
 
     let [tasks, setTasks]=useState<Array<TaskType>>([
@@ -48,9 +52,9 @@ function changeFilter (value: FilteredValuesType){
     setFilter(value);
 }
 
-let todolists=[
+let todolists:Array<TodolistType>=[
     {id:v1(),title:"What to learn",filter:"active"},
-    {id:v1(),title:"What to buy",filter:"completed"}
+    {id:v1(),title:"What to buy",filter:"complited"}
 ]
     return (
         <div className="App">
@@ -63,7 +67,7 @@ let todolists=[
                 changeFilter={changeFilter}
                 addTask={addTask}
                 changeTaskStatus={changeStatus}
-                filter={filter}
+                filter={tl.filter}
                 />
              })
              }
