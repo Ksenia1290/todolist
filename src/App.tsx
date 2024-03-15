@@ -54,8 +54,10 @@ let todolists=[
 ]
     return (
         <div className="App">
-             {todolists.map()}
-        <Todolist title="What to learn"
+             {
+             todolists.map((tl)=>{
+                return <Todolist 
+                title={tl.title}
                 tasks={ tasksForTodolist}
                 removeTask={removeTask}
                 changeFilter={changeFilter}
@@ -63,6 +65,9 @@ let todolists=[
                 changeTaskStatus={changeStatus}
                 filter={filter}
                 />
+             })
+             }
+        
     </div>
     );
 }   
