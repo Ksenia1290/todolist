@@ -38,13 +38,14 @@ setTasks([ ...tasks ]);
 }
 
 function changeFilter (value: FilterValuesType,todolistId:string){
-   
+   let todolist=todolists.find(tl=>tl.id===todolistId)
 }
 
-let todolists:Array<TodolistType>=[
+let [todolists,setTodolists]= useState <Array<TodolistType>>([
     {id:v1(),title:"What to learn",filter:"active"},
     {id:v1(),title:"What to buy",filter:"complited"}
-]
+]);
+
     return (
         <div className="App">
              {
