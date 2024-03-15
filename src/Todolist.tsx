@@ -21,6 +21,17 @@ type PropsType={
 export function Todolist(props: PropsType) {
     const[newTaskTitle, setNewTaskTitle]=useState("");
    
+    let[title, setTitle]=useState('')
+    let[error, setError]=useState<string|null>(null)
+
+    const addTask=()=>{
+        if (title.trim()!==''){
+            props.addTask(title.trim());
+            setTitle('');
+        }else{
+            setError('Title is reguired');
+        }
+    }
 
 const onNewTitleChangeHandler= (e: ChangeEvent<HTMLInputElement>)=>{
     setNewTaskTitle(e.currentTarget.value)
