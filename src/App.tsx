@@ -45,10 +45,19 @@ function changeFilter (value: FilterValuesType,todolistId:string){
    }
 }
 
+let todolistId1=v1();
+let todolistId2=v1();
+
 let [todolists,setTodolists]= useState <Array<TodolistType>>([
-    {id:v1(),title:"What to learn",filter:"active"},
-    {id:v1(),title:"What to buy",filter:"complited"}
+    {id:todolistId1,title:"What to learn",filter:"active"},
+    {id:todolistId2,title:"What to buy",filter:"complited"}
 ]);
+
+let [allTasks, setAllTasks]=useState({
+    todolistId1:[{id:v1(), title:"HTML&CSS", isDone:true},
+    {id:v1(), title:"JS", isDone:true},
+    {id:v1(), title:"React", isDone:true}]
+});
 
     return (
         <div className="App">
