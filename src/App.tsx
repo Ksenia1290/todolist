@@ -91,6 +91,7 @@ let [tasksObj, setTasks]=useState({
                 addTask={addTask}
                 changeTaskStatus={changeStatus}
                 filter={tl.filter}
+                removeTodolist={removeTodolist}
                 />
              })
              }
