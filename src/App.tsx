@@ -51,6 +51,13 @@ let [todolists,setTodolists]= useState <Array<TodolistType>>([
     {id:todolistId2,title:"What to buy",filter:"complited"}
 ]);
 
+let removeTodolist= (todolistId:string)=>{
+    let filteredTodolist=todolists.filter(tl => tl.id !==todolistId)
+    setTodolists(filteredTodolist);
+    delete tasksObj[todolistId];
+    setTasks({...tasksObj});
+}
+
 let [tasksObj, setTasks]=useState({
     [todolistId1]:[
         {id:v1(), title:"HTML&CSS", isDone:true},
