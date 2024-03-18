@@ -67,7 +67,7 @@ let [tasksObj, setTasks]=useState({
         <div className="App">
              {
              todolists.map((tl)=>{
-                let tasksForTodolist = tasks[tl.id];
+                let tasksForTodolist = tasksObj[tl.id];
                 if (tl.filter ==="complited"){
                     tasksForTodolist= tasksForTodolist.filter(t=> t.isDone===true);
                 }
