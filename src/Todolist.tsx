@@ -23,28 +23,6 @@ type PropsType={
 export function Todolist(props: PropsType) {
     const[newTaskTitle, setNewTaskTitle]=useState("");
    
-    let[title, setTitle]=useState('')
-    let[error, setError]=useState<string|null>(null)
-
-    const addTask=()=>{
-        if (title.trim()!==''){
-            props.addTask(title.trim(),props.id);
-            setTitle('');
-        }else{
-            setError('Title is reguired');
-        }
-    }
-
-//const onNewTitleChangeHandler= (e: ChangeEvent<HTMLInputElement>)=>{
- //   setNewTaskTitle(e.currentTarget.value)
-//}
-const onChangeHandler= (e: ChangeEvent<HTMLInputElement>)=>{
-      setTitle(e.currentTarget.value)
-   }
-   
-
-//const addnewTask =()=> {props.addTask(newTaskTitle);
-   // setNewTaskTitle("");}
 
 const onAllClickHandler= ()=>props.changeFilter("all",props.id);
 const onActiveClickHandler= ()=>props.changeFilter("active",props.id);
@@ -55,13 +33,8 @@ const removeTodolist=()=>{
 
 return(<div>
         <h3>{props.title}<button onClick={removeTodolist}>x</button></h3>
-    <div>
-        <input value={title} 
-                onChange={onChangeHandler}
-                className={error ?'error':''}
-        />
-        <button onClick={ addTask }>+</button>
-    </div>
+    <AddItemForm id={props.id} addTask={props.addTask}/>
+    
     <ul>
         {props.tasks.map((t)=>{
         const onClickHandler =() =>{props.removeTask(t.id,props.id)}
@@ -87,5 +60,31 @@ return  <li key={t.id} className={t.isDone? "is-done":''}>
             </div>
     </div>
     );
+    }
+    type AddItemFormPropsType={
+        addTask:(title:string,todolistId:string)=>void
+        id:string
+    }
+    function AddItemForm(props: AddItemFormPropsType ){
+        let[title, setTitle]=useState('')
+        const onChangeHandler= (e: ChangeEvent<HTMLInputElement>)=>{
+            setTitle(e.currentTarget.value)
+         }
+         let[error, setError]=useState<string|null>(null)
+         const addTask=()=>{
+            if (title.trim()!==''){
+                props.addTask(title.trim(),props.id);
+                setTitle('');
+            }else{
+                setError('Title is reguired');
+            }
+        }
+        return  <div>
+        <input value={title} 
+                onChange={onChangeHandler}
+                className={error ?'error':''}
+        />
+        <button onClick={ addTask }>+</button>
+    </div>
     }
     
