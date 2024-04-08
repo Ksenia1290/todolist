@@ -1,5 +1,7 @@
 import React, { ChangeEvent } from "react";
 import { FilterValuesType } from "./App";
+import { AddItemForm } from "./AddItemForm";
+import { title } from "process";
 
 export type TaskType={
     id:string
@@ -20,7 +22,6 @@ type PropsType={
 }
 
 export function Todolist(props: PropsType) {
-    //const[newTaskTitle, setNewTaskTitle]=useState("");
 const onAllClickHandler= ()=>props.changeFilter("all",props.id);
 const onActiveClickHandler= ()=>props.changeFilter("active",props.id);
 const onCompletedClickHandler= ()=>props.changeFilter("complited",props.id);
@@ -28,9 +29,13 @@ const removeTodolist=()=>{
     props.removeTodolist(props.id);
 }
 
+const addTask=(title:string)=>{
+    props.addTask(title,props.id)
+}
+
 return(<div>
         <h3>{props.title}<button onClick={removeTodolist}>x</button></h3>
-    <AddItemForm id={props.id} addItem={props.addTask}/>
+    <AddItemForm addItem={addTask}/>
     <ul>
         {props.tasks.map((t)=>{
         const onClickHandler =() =>{props.removeTask(t.id,props.id)}
