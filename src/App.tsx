@@ -72,7 +72,7 @@ let [tasksObj, setTasks]=useState({
 
     return (
         <div className="App">
-        <input/><button></button>
+     <AddItemForm id={'mjh'} addTask={()=>{}}/>
              {
              todolists.map((tl)=>{
                 let tasksForTodolist = tasksObj[tl.id];
