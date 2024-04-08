@@ -1,7 +1,6 @@
-import React, { ChangeEvent } from "react";
+import { ChangeEvent } from "react";
 import { FilterValuesType } from "./App";
 import { AddItemForm } from "./AddItemForm";
-import { title } from "process";
 
 export type TaskType={
     id:string
