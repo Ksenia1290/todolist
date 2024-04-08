@@ -79,6 +79,10 @@ function addTodolist(title:string){
         title:title
     }
 setTodolists([todolist,...todolists]);
+setTasks({
+    ...tasksObj,
+    [todolist.id]:[]
+})
 }
 
     return (
