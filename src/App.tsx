@@ -86,7 +86,7 @@ setTasks({
 
     return (
         <div className="App">
-     <AddItemForm  addItem={(title:string)=>{addTodolist}}/>
+     <AddItemForm  addItem={addTodolist}/>
              {
              todolists.map((tl)=>{
                 let tasksForTodolist = tasksObj[tl.id];
