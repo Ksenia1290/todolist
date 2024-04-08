@@ -2,18 +2,19 @@ import React from "react"
 import { ChangeEvent, useState } from "react"
 
 type AddItemFormPropsType={
-    addTask:(title:string,todolistId:string)=>void
+    addItem:(title:string,todolistId:string)=>void
     id:string
 }
-export function AddItemForm(props: AddItemFormPropsType ){
+export function AddItemForm (props: AddItemFormPropsType ){
     let[title, setTitle]=useState('')
+    let[error, setError]=useState<string|null>(null)
+     
     const onChangeHandler= (e: ChangeEvent<HTMLInputElement>)=>{
         setTitle(e.currentTarget.value)
      }
-     let[error, setError]=useState<string|null>(null)
      const addTask=()=>{
         if (title.trim()!==''){
-            props.addTask(title.trim(),props.id);
+            props.addItem(title.trim(),props.id);
             setTitle('');
         }else{
             setError('Title is reguired');
