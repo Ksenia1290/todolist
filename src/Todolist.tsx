@@ -1,7 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 import { FilterValuesType } from "./App";
 
-
 export type TaskType={
     id:string
     title:string
@@ -21,9 +20,7 @@ type PropsType={
 }
 
 export function Todolist(props: PropsType) {
-    const[newTaskTitle, setNewTaskTitle]=useState("");
-   
-
+    //const[newTaskTitle, setNewTaskTitle]=useState("");
 const onAllClickHandler= ()=>props.changeFilter("all",props.id);
 const onActiveClickHandler= ()=>props.changeFilter("active",props.id);
 const onCompletedClickHandler= ()=>props.changeFilter("complited",props.id);
@@ -34,7 +31,6 @@ const removeTodolist=()=>{
 return(<div>
         <h3>{props.title}<button onClick={removeTodolist}>x</button></h3>
     <AddItemForm id={props.id} addTask={props.addTask}/>
-    
     <ul>
         {props.tasks.map((t)=>{
         const onClickHandler =() =>{props.removeTask(t.id,props.id)}
