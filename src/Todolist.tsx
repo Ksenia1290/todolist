@@ -2,6 +2,7 @@ import { ChangeEvent } from "react";
 import { FilterValuesType } from "./App";
 import { AddItemForm } from "./AddItemForm";
 
+
 export type TaskType={
     id:string
     title:string
@@ -61,9 +62,4 @@ return  <li key={t.id} className={t.isDone? "is-done":''}>
     </div>
     );
     }
-    type EditableSpanPropsType={
-        title:string
-    }
-    function EditableSpan(props:EditableSpanPropsType){
-       return <span>{props.title}</span>
-    }
+   
