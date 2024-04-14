@@ -47,7 +47,7 @@ return(<div>
         }
 
         const onChangeTitleHandler=(newValue:string) => {
-        //props.changeTaskStatus(t.id, newIsDoneValue,props.id);
+        props.changeTaskTitle(t.id, newValue,props.id);
         }
 
 return  <li key={t.id} className={t.isDone? "is-done":''}>
