@@ -8,7 +8,9 @@ type EditableSpanPropsType={
 export function EditableSpan(props:EditableSpanPropsType){
 let [editMode,setEditMode]= useState(true)
 
+const activateEditMode=()=>setEditMode(true)
+
    return editMode
     ? <input value={props.title}/>
-    : <span>{props.title}</span>
+    : <span onDoubleClick={activateEditMode}>{props.title}</span>
 }
