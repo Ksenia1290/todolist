@@ -41,14 +41,20 @@ return(<div>
     <ul>
         {props.tasks.map((t)=>{
         const onClickHandler =() =>{props.removeTask(t.id,props.id)}
-        const onChangeHandler=(e:ChangeEvent<HTMLInputElement>) => {
-        props.changeTaskStatus(t.id, e.currentTarget.checked,props.id);
+        const onChangeStatusHandler=(e:ChangeEvent<HTMLInputElement>) => {
+            let newIsDoneValue=e.currentTarget.checked;
+        props.changeTaskStatus(t.id, newIsDoneValue,props.id);
         }
+
+        const onChangeTitleHandler=(newValue:string) => {
+        //props.changeTaskStatus(t.id, newIsDoneValue,props.id);
+        }
+
 return  <li key={t.id} className={t.isDone? "is-done":''}>
         <input type="checkbox"
-                onChange={onChangeHandler}
+                onChange={onChangeStatusHandler}
                 checked={t.isDone}/> 
-            < EditableSpan  title={t.title} onChange={(value)=>{alert(value)}}/>
+            < EditableSpan  title={t.title} onChange={onChangeTitleHandler}/>
 
             <button onClick={onClickHandler}>X</button>
         </li>
