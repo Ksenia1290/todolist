@@ -10,6 +10,7 @@ let [title,setTitle]= useState('');
 
 const activateEditMode=()=>{
 setEditMode(true);
+setTitle(props.title)
 }
 const activateViewMode=()=>setEditMode(false);
 const onChangeTitleHandler=(e:ChangeEvent<HTMLInputElement>)=>setTitle(e.currentTarget.value)
