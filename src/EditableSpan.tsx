@@ -8,7 +8,9 @@ export function EditableSpan(props:EditableSpanPropsType){
 let [editMode,setEditMode]= useState(false);
 let [title,setTitle]= useState('');
 
-const activateEditMode=()=>setEditMode(true);
+const activateEditMode=()=>{
+setEditMode(true);
+}
 const activateViewMode=()=>setEditMode(false);
 const onChangeTitleHandler=(e:ChangeEvent<HTMLInputElement>)=>setTitle(e.currentTarget.value)
 
