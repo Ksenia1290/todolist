@@ -3,6 +3,7 @@ import { FilterValuesType } from "./App";
 import { AddItemForm } from "./AddItemForm";
 
 
+
 export type TaskType={
     id:string
     title:string
@@ -46,7 +47,8 @@ return  <li key={t.id} className={t.isDone? "is-done":''}>
         <input type="checkbox"
                 onChange={onChangeHandler}
                 checked={t.isDone}/> 
-            <EditableSpan title={t.title}/>
+            {/*<EditableSpan title={t.title} editMode={true}/>*/}
+            
             <button onClick={onClickHandler}>X</button>
         </li>
             })}
