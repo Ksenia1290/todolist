@@ -45,15 +45,15 @@ return(<div>
         const onChangeTitleHandler=(newValue:string) => {
         props.changeTaskTitle(t.id, newValue,props.id);
         }
-        
+
 
 return  <li key={t.id} className={t.isDone? "is-done":''}>
            <input type="checkbox"
                   onChange={onChangeStatusHandler}
                   checked={t.isDone}/> 
            <EditableSpan title={props.title} 
-                         onChange={changeTodolistTitle}/>
-           <button onClick={removeTodolist}>X</button>
+                         onChange={onChangeTitleHandler}/>
+           <button onClick={onClickHandler}>X</button>
         </li>
 })}
     </ul>

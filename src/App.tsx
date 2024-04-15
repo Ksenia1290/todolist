@@ -37,10 +37,11 @@ let tasks = tasksObj[todolistId];
 let task =  tasks.find( (t) => t.id ===taskId )
 //изменим таску ,если она нашлась
 if(task){ 
-    task.isDone = isDone;
+   task.isDone = isDone;
 //засетаем в стейт копию объекта чтобы React отреагировал перерисовкой
 setTasks({...tasksObj});
 }}
+
 
 function changeTaskTitle(taskId:string,newTitle:string,todolistId:string){
     let tasks = tasksObj[todolistId];   
