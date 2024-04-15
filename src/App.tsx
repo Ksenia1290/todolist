@@ -133,6 +133,7 @@ setTasks({
                 changeTaskTitle={changeTaskTitle}
                 filter={tl.filter}
                 removeTodolist={removeTodolist}
+                changeTodolistTitle={changeTodolistTitle}
                 />
              })
              }
