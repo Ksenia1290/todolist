@@ -33,13 +33,26 @@ function addTask(title:string,todolistId:string) {
 }
 
 function changeStatus(taskId:string,isDone:boolean,todolistId:string){
+//достанем нужный мвссив по todolistId
 let tasks = tasksObj[todolistId];   
+//найдем нужную таску 
 let task =  tasks.find( (t) => t.id ===taskId )
+//изменим таску ,если она нашлась
 if(task){ 
     task.isDone = isDone;
+//засетаем в стейт копию объекта чтобы React отреагировал перерисовкой
 setTasks({...tasksObj});
 }
 }
+
+function changeTaskTitle(taskId:string,newTitle:string,todolistId:string){
+    let tasks = tasksObj[todolistId];   
+    let task =  tasks.find( (t) => t.id ===taskId )
+    if(task){ 
+        task.title = newTitle;
+    setTasks({...tasksObj});
+    }
+    }
 
 function changeFilter (value: FilterValuesType,todolistId:string){
    let todolist=todolists.find(tl=>tl.id===todolistId);
@@ -110,6 +123,7 @@ setTasks({
                 changeFilter={changeFilter}
                 addTask={addTask}
                 changeTaskStatus={changeStatus}
+                changeTaskTitle={changeTaskTitle}
                 filter={tl.filter}
                 removeTodolist={removeTodolist}
                 />
