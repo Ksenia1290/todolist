@@ -64,6 +64,18 @@ function changeTodolistTitle(id:string,newTitle:string){
      setTodolists([...todolists]);
     }}
 
+function addTodolist(title:string){
+        let todolist:TodolistType= {
+            id:v1(),
+            filter:'all',
+            title:title
+        }
+    setTodolists([todolist,...todolists]);
+    setTasks({
+        ...tasksObj,
+        [todolist.id]:[]
+    })}
+    
 let todolistId1=v1();
 let todolistId2=v1();
 let [todolists,setTodolists]= useState <Array<TodolistType>>([
@@ -90,19 +102,6 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
         {id:v1(), title:"Milk", isDone:true},
     ],           
 });
-
-function addTodolist(title:string){
-    let todolist:TodolistType= {
-        id:v1(),
-        filter:'all',
-        title:title
-    }
-setTodolists([todolist,...todolists]);
-setTasks({
-    ...tasksObj,
-    [todolist.id]:[]
-})
-}
 
     return (
         <div className="App">
