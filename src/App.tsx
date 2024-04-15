@@ -16,13 +16,11 @@ type TasksStateType={
 }
 
 function App() {
-
 function removeTask(id:string,todolistId:string){
 let tasks = tasksObj[todolistId];
 let filteredTasks = tasks.filter( t => t.id !==id);
 tasksObj[todolistId]=filteredTasks;
-setTasks({...tasksObj});
-}
+setTasks({...tasksObj});}
 
 function addTask(title:string,todolistId:string) {
     let newTask = {id:v1(), title: title, isDone:false}
@@ -42,8 +40,7 @@ if(task){
     task.isDone = isDone;
 //засетаем в стейт копию объекта чтобы React отреагировал перерисовкой
 setTasks({...tasksObj});
-}
-}
+}}
 
 function changeTaskTitle(taskId:string,newTitle:string,todolistId:string){
     let tasks = tasksObj[todolistId];   
@@ -51,20 +48,24 @@ function changeTaskTitle(taskId:string,newTitle:string,todolistId:string){
     if(task){ 
         task.title = newTitle;
     setTasks({...tasksObj});
-    }
-    }
+}}
 
 function changeFilter (value: FilterValuesType,todolistId:string){
    let todolist=todolists.find(tl=>tl.id===todolistId);
    if(todolist){
     todolist.filter=value;
     setTodolists([...todolists]);
-   }
-}
+}}
+
+function changeTodolistTitle(id:string,newTitle:string){
+    const todolist= todolists.find(tl=>tl.id===id);
+    if(todolist){
+     todolist.title=newTitle;
+     setTodolists([...todolists]);
+    }}
 
 let todolistId1=v1();
 let todolistId2=v1();
-
 let [todolists,setTodolists]= useState <Array<TodolistType>>([
     {id:todolistId1,title:"What to learn",filter:"active"},
     {id:todolistId2,title:"What to buy",filter:"complited"}
@@ -76,13 +77,7 @@ let removeTodolist= (todolistId:string)=>{
     delete tasksObj[todolistId];
     setTasks({...tasksObj});
 }
- function changeTodolistTitle(id:string,newTitle:string){
-   const todolist= todolists.find(tl=>tl.id===id);
-   if(todolist){
-    todolist.title=newTitle;
-    setTodolists([...todolists]);
-   }
- }
+ 
 
 let [tasksObj, setTasks]=useState<TasksStateType>({
     [todolistId1]:[
