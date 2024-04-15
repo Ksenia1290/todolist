@@ -45,6 +45,7 @@ return(<div>
         const onChangeTitleHandler=(newValue:string) => {
         props.changeTaskTitle(t.id, newValue,props.id);
         }
+        
 
 return  <li key={t.id} className={t.isDone? "is-done":''}>
            <input type="checkbox"
