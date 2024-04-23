@@ -33,8 +33,10 @@ const changeTodolistTitle=(newTitle:string)=>{
 const addTask=(title:string)=>{ props.addTask(title,props.id)}
 
 return(<div>
-        <h3>{props.title}<button onClick={removeTodolist}>x</button></h3>
-            <AddItemForm addItem={addTask}/>
+        <h3><EditableSpan value={props.title} onChange={changeTodolistTitle}/>
+        <button onClick={removeTodolist}>x</button>
+        </h3>
+        <AddItemForm addItem={addTask}/>
     <ul>
         {props.tasks.map((t)=>{
         const onClickHandler =() =>{props.removeTask(t.id,props.id)}
