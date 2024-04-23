@@ -1,3 +1,4 @@
+import { Button } from "@mui/material"
 import { ChangeEvent, useState } from "react"
 
 type AddItemFormPropsType={
@@ -23,7 +24,9 @@ export function AddItemForm (props: AddItemFormPropsType ){
             onChange={onChangeHandler}
             className={error ?'error':''}
     />
-    <button onClick={ addTask }>+</button>
+    <Button onClick={ addTask } variant={'contained'}>+</Button>
+
+    {error &&<div className="error-message">{error}</div>}
 </div>
 }
 
