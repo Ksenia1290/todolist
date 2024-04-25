@@ -60,7 +60,6 @@ return  <li key={t.id} className={t.isDone? "is-done":''}>
                   checked={t.isDone}/> 
            <EditableSpan title={t.title} 
                          onChange={onChangeTitleHandler}/>
-           <button onClick={onClickHandler}>X</button>
            <IconButton onClick={onClickHandler}>
             <Delete/>
            </IconButton>
