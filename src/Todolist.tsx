@@ -31,9 +31,9 @@ const removeTodolist=()=>{props.removeTodolist(props.id)};
 const changeTodolistTitle=(newTitle:string)=>{
     props.changeTodolistTitle(props.id,newTitle)}
 const addTask=(title:string)=>{ props.addTask(title,props.id)}
-
+//value={props.title} 
 return(<div>
-        <h3><EditableSpan value={props.title} onChange={changeTodolistTitle}/>
+        <h3><EditableSpan={props.title} onChange={changeTodolistTitle}/>
         <button onClick={removeTodolist}>x</button>
         </h3>
         <AddItemForm addItem={addTask}/>

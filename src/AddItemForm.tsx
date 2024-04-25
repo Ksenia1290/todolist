@@ -24,9 +24,10 @@ export function AddItemForm (props: AddItemFormPropsType ){
             onChange={onChangeHandler}
             className={error ?'error':''}
     />
-    <Button onClick={ addTask } variant={'contained'}>+</Button>
+    <Button onClick={ addTask } variant={'contained'} color={'primary'}>+</Button>
 
     {error &&<div className="error-message">{error}</div>}
 </div>
 }
 
+ 
