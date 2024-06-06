@@ -37,8 +37,8 @@ const addTask=(title:string)=>{ props.addTask(title,props.id)}
 return(<div>
         <h3><EditableSpan title={props.title} onChange={changeTodolistTitle}/>
         
-        <IconButton aria-label='delete' onClick={removeTodolist}>
-            <Delete/>
+        <IconButton aria-label='delete' onClick={removeTodolist}>{/*удаление тудулиста иконкой корзина*/}
+            <Delete/> 
             </IconButton>
         </h3>
         <AddItemForm addItem={addTask}/>
@@ -60,7 +60,7 @@ return  <li key={t.id} className={t.isDone? "is-done":''}>
                   checked={t.isDone}/> 
            <EditableSpan title={t.title} 
                          onChange={onChangeTitleHandler}/>
-           <IconButton onClick={onClickHandler}>
+           <IconButton onClick={onClickHandler}>{/*удаление таски иконкой корзина*/}
             <Delete/>
            </IconButton>
         </li>
