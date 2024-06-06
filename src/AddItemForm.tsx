@@ -1,4 +1,4 @@
-import { Button } from "@mui/material"
+import { Button, TextField } from "@mui/material"
 import { ChangeEvent, useState } from "react"
 
 type AddItemFormPropsType={
@@ -21,6 +21,10 @@ export function AddItemForm (props: AddItemFormPropsType ){
     }
     return  <div>
     <input value={title} 
+            onChange={onChangeHandler}
+            className={error ?'error':''}
+    />
+    <TextField value={title} 
             onChange={onChangeHandler}
             className={error ?'error':''}
     />

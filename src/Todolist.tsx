@@ -66,13 +66,12 @@ return  <li key={t.id} className={t.isDone? "is-done":''}>
         </li>
 })}
     </ul>
-        <div> {/*Кнопки фильтрации.Передаем кнопке классы-если кнопка соответствует значению all,active 
-                 то кнопке добавляется стиль active-filter*/}
-            <Button className={props.filter==="all"? 'active-filter':''}
+        <div> {/*Кнопки фильтрации*/}
+            <Button variant={props.filter==="all"? 'contained':'text'}
             onClick={onAllClickHandler}>All</Button>
-            <Button color={'primary'} className={props.filter==="active"? 'active-filter':''}
+            <Button color={'primary'} variant={props.filter==="active"? 'contained':'text'}
             onClick={onActiveClickHandler}>Active</Button>
-            <Button color={'secondary'} className={props.filter==="complited"? 'active-filter':''}
+            <Button color={'secondary'} variant={props.filter==="complited"? 'contained':'text'}
             onClick={onCompletedClickHandler}>Completed</Button>
         </div>
     </div>
