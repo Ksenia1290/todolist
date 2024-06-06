@@ -2,7 +2,7 @@ import { ChangeEvent } from "react";
 import { FilterValuesType } from "./App";
 import { AddItemForm } from "./AddItemForm";
 import { EditableSpan } from "./EditableSpan";
-import { IconButton } from "@mui/material";
+import { Button, IconButton } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 
 export type TaskType={
@@ -66,13 +66,14 @@ return  <li key={t.id} className={t.isDone? "is-done":''}>
         </li>
 })}
     </ul>
-        <div>
-            <button className={props.filter==="all"? 'active-filter':''}
-            onClick={onAllClickHandler}>All</button>
-            <button  className={props.filter==="active"? 'active-filter':''}
-            onClick={onActiveClickHandler}>Active</button>
-            <button  className={props.filter==="complited"? 'active-filter':''}
-            onClick={onCompletedClickHandler}>Completed</button>
+        <div> {/*Кнопки фильтрации.Передаем кнопке классы-если кнопка соответствует значению all,active 
+                 то кнопке добавляется стиль active-filter*/}
+            <Button className={props.filter==="all"? 'active-filter':''}
+            onClick={onAllClickHandler}>All</Button>
+            <Button  className={props.filter==="active"? 'active-filter':''}
+            onClick={onActiveClickHandler}>Active</Button>
+            <Button  className={props.filter==="complited"? 'active-filter':''}
+            onClick={onCompletedClickHandler}>Completed</Button>
         </div>
     </div>
     );
