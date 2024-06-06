@@ -70,9 +70,9 @@ return  <li key={t.id} className={t.isDone? "is-done":''}>
                  то кнопке добавляется стиль active-filter*/}
             <Button className={props.filter==="all"? 'active-filter':''}
             onClick={onAllClickHandler}>All</Button>
-            <Button  className={props.filter==="active"? 'active-filter':''}
+            <Button color={'primary'} className={props.filter==="active"? 'active-filter':''}
             onClick={onActiveClickHandler}>Active</Button>
-            <Button  className={props.filter==="complited"? 'active-filter':''}
+            <Button color={'secondary'} className={props.filter==="complited"? 'active-filter':''}
             onClick={onCompletedClickHandler}>Completed</Button>
         </div>
     </div>
