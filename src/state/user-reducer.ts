@@ -8,7 +8,7 @@ type ActionType={
     [key:string]:any
 }
 
-export const userReducer = (state:StateType,action:ActionType)=>{ //reducer  это функция которая принимает state(user) и инструкцию (action)которая говорит как преобразовывать state(user)
+export const userReducer = (state:StateType,action:ActionType):StateType=>{ //reducer  это функция которая принимает state(user) и инструкцию (action)которая говорит как преобразовывать state(user)
 switch(action.type){
     case'INCREMENT-AGE':
     let newState={...state}
