@@ -3,7 +3,7 @@ import './App.css';
 import { TaskType, Todolist } from './Todolist';
 import { v1 } from 'uuid';
 import { AddItemForm } from './AddItemForm';
-import { AppBar, Button, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Button, Container, Grid, IconButton, Toolbar, Typography } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 
 
@@ -118,7 +118,10 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
                 <Button color='inherit'>Login</Button>
               </Toolbar>
           </AppBar>
-     <AddItemForm  addItem={addTodolist}/>
+          <Container fixed>
+            <Grid container>
+               <AddItemForm  addItem={addTodolist}/>
+            </Grid>
              {
              todolists.map((tl)=>{
                 let tasksForTodolist = tasksObj[tl.id];
@@ -144,7 +147,7 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
                 />
              })
              }
-        
+        </Container>
     </div>
     );
 }   
