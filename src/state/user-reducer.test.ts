@@ -1,7 +1,7 @@
 import { userReducer } from './user-reducer';
 
-test ('user reducer should increment only age',()=>{
-    const startState={age:28,childrenCount:26,name:'Dimych'};
+test ('user reducer should increment only age',()=>{//описание что тест проверяет
+    const startState={age:20,childrenCount:2,name:'Dimych'};//стартовые данные
 
     const endState=userReducer(startState,{type:'INCREMENT-AGE'})
 expect(endState.age).toBe(21);
