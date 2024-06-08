@@ -107,7 +107,7 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
 
     return (
         <div className="App">
-          <AppBar position=  'absolute'>
+          <AppBar position=  'absolute' >
               <Toolbar>
                 <IconButton edge='start' color='inherit' aria-label='menu'>
                     <Menu/>
@@ -118,8 +118,8 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
                 <Button color='inherit'>Login</Button>
               </Toolbar>
           </AppBar>
-          <Container fixed >
-            <Grid container >
+          <Container fixed style={{padding:'30px'}}>
+            <Grid container style={{padding:'10px'}}>
                <AddItemForm  addItem={addTodolist}/>
             </Grid>
             <Grid container spacing={2}  >
@@ -133,7 +133,7 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
                     tasksForTodolist= tasksForTodolist.filter(t=> t.isDone===false);
                 }
                 return <Grid item >
-                    <Paper>
+                    <Paper style={{padding:'10px'}}>
                 <Todolist 
                 key={tl.id}
                 id={tl.id}
