@@ -3,7 +3,7 @@ import './App.css';
 import { TaskType, Todolist } from './Todolist';
 import { v1 } from 'uuid';
 import { AddItemForm } from './AddItemForm';
-import { AppBar, Button, Container, Grid, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography } from '@mui/material';
 import { Menu } from '@mui/icons-material';
 
 
@@ -107,7 +107,7 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
 
     return (
         <div className="App">
-          <AppBar position='static'>
+          <AppBar position=  'absolute'>
               <Toolbar>
                 <IconButton edge='start' color='inherit' aria-label='menu'>
                     <Menu/>
@@ -118,10 +118,11 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
                 <Button color='inherit'>Login</Button>
               </Toolbar>
           </AppBar>
-          <Container fixed>
-            <Grid container>
+          <Container fixed >
+            <Grid container >
                <AddItemForm  addItem={addTodolist}/>
             </Grid>
+            <Grid container spacing={2}  >
              {
              todolists.map((tl)=>{
                 let tasksForTodolist = tasksObj[tl.id];
@@ -131,7 +132,8 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
                 if (tl.filter ==="active"){
                     tasksForTodolist= tasksForTodolist.filter(t=> t.isDone===false);
                 }
-                return <Todolist 
+                return <Grid item >
+                    <Paper>
                 key={tl.id}
                 id={tl.id}
                 title={tl.title}
@@ -145,8 +147,12 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
                 removeTodolist={removeTodolist}
                 changeTodolistTitle={changeTodolistTitle}
                 />
+                </Paper>
+                <Todolist 
+                </Grid>
              })
              }
+             </Grid>
         </Container>
     </div>
     );
