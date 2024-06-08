@@ -134,6 +134,7 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
                 }
                 return <Grid item >
                     <Paper>
+                <Todolist 
                 key={tl.id}
                 id={tl.id}
                 title={tl.title}
@@ -148,7 +149,6 @@ let [tasksObj, setTasks]=useState<TasksStateType>({
                 changeTodolistTitle={changeTodolistTitle}
                 />
                 </Paper>
-                <Todolist 
                 </Grid>
              })
              }
