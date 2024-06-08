@@ -42,7 +42,7 @@ return(<div>
             </IconButton>
         </h3>
         <AddItemForm addItem={addTask}/>
-    <ul>
+    <div>
         {props.tasks.map((t)=>{
         const onClickHandler =() =>{props.removeTask(t.id,props.id)}
         const onChangeStatusHandler=(e:ChangeEvent<HTMLInputElement>) => {
@@ -54,7 +54,7 @@ return(<div>
         }
 
 
-return  <li key={t.id} className={t.isDone? "is-done":''}>
+return  <div key={t.id} className={t.isDone? "is-done":''}>
            <Checkbox onChange={onChangeStatusHandler}
                      checked={t.isDone}/> 
            <EditableSpan title={t.title} 
@@ -62,9 +62,9 @@ return  <li key={t.id} className={t.isDone? "is-done":''}>
            <IconButton onClick={onClickHandler}>{/*удаление таски иконкой корзина*/}
             <Delete/>
            </IconButton>
-        </li>
+        </div>
 })}
-    </ul>
+    </div>
         <div> {/*Кнопки фильтрации*/}
             <Button variant={props.filter==="all"? 'contained':'text'}
             onClick={onAllClickHandler}>All</Button>
