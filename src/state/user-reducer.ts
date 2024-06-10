@@ -13,7 +13,7 @@ switch(action.type){
     case'INCREMENT-AGE':
     let newState={...state}
         newState.age=state.age+1;
-        return state;
+        return newState;
     case'INCREMENT-CHILDREN-COUNT':
 return{
     ...state,
